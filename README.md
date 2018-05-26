@@ -166,7 +166,7 @@ We can now start from an empty process.
 
 Select Phase 1 and select 'Hosted Linux Preview' as our Agent queue. Now we can add new build steps by clicking '+' by Phase 1. 
 
-*Task 1*
+**Task 1**
 
 As far as this is a Vue.js project we have to use npm as our dependency manager, and build tool. First search for 'npm' in the search bar and select the 'npm' task.
 
@@ -174,15 +174,15 @@ As far as this is a Vue.js project we have to use npm as our dependency manager,
 
 Now we can configuarate our task. First thing first, we have to install dependencies. Select install as a command (this is the default), and as our working folder type 'app'.
 
-![npm install](./images/vsts_npm_install)
+![npm install](./images/vsts_npm_install.png)
 
-*Task 2*
+**Task 2**
 
 Add a new task to Phase 1. Select 'npm' again. Name this 'npm run build'. The command will be **custom**, working directory is 'app' again, and the running command have to be **run build**. 
 
-![npm run build](./images/vsts_npm_run_build)
+![npm run build](./images/vsts_npm_run_build.png)
 
-*Task 3*
+**Task 3**
 
 Next task will be an 'Archive' task, where we zip our built folder. Add new task and search for 'archive'. Select the first one.
 
@@ -192,7 +192,7 @@ Display name can be anything, I name this 'Archive ./app/dist'. Root folder shou
 
 ![Archive config](./images/vsts_archive_conf.png)
 
-*Task 4*
+**Task 4**
 
 Add new task and search for 'Azure CLI'. This will deploy our app to Azure Web apps. 
 
@@ -202,7 +202,13 @@ Add new task and search for 'Azure CLI'. This will deploy our app to Azure Web a
 
 `az webapp deployment source config-zip --resource-group RESOURCE_GROUPE --name APP_NAME --src ./dist.zip`
 
+**Set trigger**
 
+If we want to enable continuous deployment, we have to set it by clicking the Triggers tab.
+
+Select 'Enable continuous integration', set include to master.
+
+![trigger](./images/vsts_trigger.png)
 
 ## Create a new pull request
 
