@@ -138,6 +138,7 @@ It is very similar to the push command we used earlier.
 
 ## Create a new Azure App Service
 Open up the [Azure Portal](https://portal.azure.com/)
+
 Log in with your microsoft account.
 
 Search for 'App Service' in the search bar.
@@ -157,7 +158,7 @@ You can now visit your new website by clicking to 'Tallózás'
 ## Create a new CI/CD flow with continuous integration enabled
 Open up your VSTS repo, click 'Builds and Release' and create a new CI flow.
 
-[Build](./images/vsts_build_release.png)
+![Build](./images/vsts_build_release.png)
 
 Select the current VSTS git repo as a source.
 
@@ -169,33 +170,33 @@ Select Phase 1 and select 'Hosted Linux Preview' as our Agent queue. Now we can 
 
 As far as this is a Vue.js project we have to use npm as our dependency manager, and build tool. First search for 'npm' in the search bar and select the 'npm' task.
 
-[npm](./images/vsts_npm.png)
+![npm](./images/vsts_npm.png)
 
 Now we can configuarate our task. First thing first, we have to install dependencies. Select install as a command (this is the default), and as our working folder type 'app'.
 
-[npm install](./images/vsts_npm_install)
+![npm install](./images/vsts_npm_install)
 
 *Task 2*
 
 Add a new task to Phase 1. Select 'npm' again. Name this 'npm run build'. The command will be **custom**, working directory is 'app' again, and the running command have to be **run build**. 
 
-[npm run build](./images/vsts_npm_run_build)
+![npm run build](./images/vsts_npm_run_build)
 
 *Task 3*
 
 Next task will be an 'Archive' task, where we zip our built folder. Add new task and search for 'archive'. Select the first one.
 
-[Archive](./images/vsts_archive.png)
+![Archive](./images/vsts_archive.png)
 
 Display name can be anything, I name this 'Archive ./app/dist'. Root folder should be **./app/dist/**, archive type should be **zip**, archive file have to be **dist.zip**.
 
-[Archive config](./images/vsts_archive_conf.png)
+![Archive config](./images/vsts_archive_conf.png)
 
 *Task 4*
 
 Add new task and search for 'Azure CLI'. This will deploy our app to Azure Web apps. 
 
-[azure cli](./images/vsts_azure_cli.png)
+![azure cli](./images/vsts_azure_cli.png)
 
 *Most important:* You have to select your Azure subscription, then Authorize it. This step will provide a new service principal to this VSTS build (this will be used during the login/authentication). Script location should be **Inline script**, the script will look like this:
 
