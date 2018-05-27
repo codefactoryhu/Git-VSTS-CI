@@ -253,3 +253,7 @@ Now we can check the 'Build and Release' menu, and see how our CD flow works. ;)
 Let's see the latest version of our site.
 
 ![voila](./images/voila.png)
+
+## Credits & disclaimer
+
+This repo is a part of a workshop hosted by Microsoft Hungary. The event is helt by, and all credit goes to Nextent Informatics and Code Factory. 
