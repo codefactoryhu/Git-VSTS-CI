@@ -25,7 +25,7 @@ Navigate to a folder where you want to download the project to.
 
 And clone our repository
 
-`git clone https://github.com/codefactoryhu/Git-VSTS-CI.git` 
+`git clone https://github.com/codefactoryhu/MS-Workshop-1-Git-VSTS-CI.git` 
 
 Check if the project is downloaded or not:
 `ls -la` or `dir`
@@ -72,6 +72,7 @@ On the VSTS dashboard click on New Project button.
 
 Name your project whatever you want. We named it Git-VSTS-CI.
 Select 'or push an existing repository from command line'
+
 ![vsts existing project](./images/vsts_existing_project.png)
 
 ## Define remote, and push our project
@@ -143,13 +144,23 @@ Log in with your microsoft account.
 
 Search for 'App Service' in the search bar.
 
+![search](./images/azure_search_app_service.png)
+
 Hit '+ Hozzáad' to create new new App Service. 
+
+![create new](./images/azure_create_new_app_service.png)
+
 Select 'Webes alkalmazás'
+
+![web app](./images/azure_web_app.png)
+
 Click on 'Létrehozás'
 Give it a name. 
 Select a resoure group.
 Select Windows for platform.
 I recommend pin it to Dashboard. 
+
+![new](./images/azure_new_web_app.png)
 
 We have to wait a couple of minutes to launch. 
 
@@ -210,7 +221,35 @@ Select 'Enable continuous integration', set include to master.
 
 ![trigger](./images/vsts_trigger.png)
 
+**Save Flow & run it**
+Now we can save this new CD flow. Select 'Save & Queue' from the top menu.
+
+Click the name of the build, let's see whether it is working or not. 
+
 ## Create a new pull request
+We have already push-ed our fancy changes before. So it is time to merge it the the *master* branch.
+
+Fist click on 'Code', and select 'Pull requests'
+
+![pull request](./images/vsts_pull_request.png)
+
+Than create a new pull request.
+
+![new pull request](./images/vsts_new_pull_request.png)
+
+Source branch shoud be 'feature_change_image', the target branch should be 'master'.
+Now you can edit the name of the pull request, and the description. You can see the diff between the branches down below. 
+
+Click on 'Create' button. 
+
+On the next page, we can see a summary, with lots of options. To accept a pull request, someone from your team have to approve the changes. As soon as I am a one-man team, I will accept my changes. :) Than I can 'Complete' the pull request. 
+
+![approve](./images/vsts_pullrequest_approve.png)
+
+Now we can check the 'Build and Release' menu, and see how our CD flow works. ;) 
 
 ## Voila
 
+Let's see the latest version of our site.
+
+![voila](./images/voila.png)
