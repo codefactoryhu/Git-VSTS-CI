@@ -254,6 +254,23 @@ Let's see the latest version of our site.
 
 ![voila](./images/voila.png)
 
+## Local testing
+To test locally you either have to have node + npm installed on your machine, or Docker installed on your machine.
+
+**Testing *without* docker:**
+* `cd /path/to/project/app`
+* `npm install`
+* `npm run dev`
+* navigate browser to localhost:8080
+
+**Testing *with* docker:**
+* ``docker run --rm -it -p 8080:8080 -v `pwd`:/srv/ node:8.11.2-alpine /bin/sh``
+* `cd /srv/app/`
+* `npm install`
+* `export HOST=0.0.0.0`
+* `npm run dev`
+* navigate browser to localhost:8080
+
 ## Credits & disclaimer
 
 This repo is a part of a workshop hosted by Microsoft Hungary. The event is helt by, and all credit goes to Nextent Informatics and Code Factory. 
