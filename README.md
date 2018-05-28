@@ -77,11 +77,15 @@ Select 'or push an existing repository from command line'
 
 ## Define remote, and push our project
 Let's copy the first line in the screen.
-`git remote add origin https://szilagyiabo.visualstudio.com/Git-VSTS-CI/_git/Git-VSTS-CI`
+
+`git remote add origin YOUR_REPO_URL`
+
 This command will define our 'origin' remote repo.
 
 Next step is to upload this new commit to the remote repo.
+
 `git push origin master` 
+
 Origin is the name of the remote repo (origin by default), master is the name of the branch we want to update.
 
 ## Creating a new branch
