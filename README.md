@@ -45,6 +45,10 @@ To make our life easier delete *.git* folder.
 
 `rm -rf ./.git`
 
+or
+
+`rmdir /S /Q "C:\<dir>\"` on Windows
+
 And let's initialize a new git repo.
 
 `git init`
@@ -74,6 +78,9 @@ Name your project whatever you want. We named it Git-VSTS-CI.
 Select 'or push an existing repository from command line'
 
 ![vsts existing project](./images/vsts_existing_project.png)
+
+## Create a new git credential with e-mail address and password
+If this is your first repo on VSTS, you have to create a new Git credential to commit and push code.
 
 ## Define remote, and push our project
 Let's copy the first line in the screen.
@@ -215,7 +222,9 @@ Add new task and search for 'Azure CLI'. This will deploy our app to Azure Web a
 
 *Most important:* You have to select your Azure subscription, then Authorize it. This step will provide a new service principal to this VSTS build (this will be used during the login/authentication). Script location should be **Inline script**, the script will look like this:
 
-`az webapp deployment source config-zip --resource-group RESOURCE_GROUPE --name APP_NAME --src ./dist.zip`
+Note: You have to enable popup windows to authorize your subscription!
+
+`az webapp deployment source config-zip --resource-group RESOURCE_GROUP --name APP_NAME --src ./dist.zip`
 
 **Set trigger**
 
@@ -277,4 +286,4 @@ To test locally you either have to have node + npm installed on your machine, or
 
 ## Credits & disclaimer
 
-This repo is a part of a workshop hosted by Microsoft Hungary. The event is helt by, and all credit goes to Nextent Informatics and Code Factory. 
+This repo is a part of a workshop hosted by Microsoft Hungary. The event is held by, and all credit goes to Nextent Informatics and Code Factory. 
